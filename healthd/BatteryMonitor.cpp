@@ -489,6 +489,9 @@ void BatteryMonitor::updateValues(void) {
             if (!strcmp(name, ".") || !strcmp(name, ".."))
                 continue;
 
+            if (!strcmp(name, "ucsi-source-psy-soc:qcom,pmic_glink:qcom,ucsi1"))
+                continue;
+
             // Look for "type" file in each subdirectory
             path.clear();
             path.appendFormat("%s/%s/type", POWER_SUPPLY_SYSFS_PATH, name);

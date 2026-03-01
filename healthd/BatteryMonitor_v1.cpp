@@ -596,6 +596,9 @@ void BatteryMonitor::init(struct healthd_config *hc) {
             if (!strcmp(name, ".") || !strcmp(name, ".."))
                 continue;
 
+            if (!strcmp(name, "ucsi-source-psy-soc:qcom,pmic_glink:qcom,ucsi1"))
+                continue;
+
             std::vector<String8>::iterator itIgnoreName =
                     find(hc->ignorePowerSupplyNames.begin(), hc->ignorePowerSupplyNames.end(),
                          String8(name));
