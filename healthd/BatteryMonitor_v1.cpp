@@ -374,12 +374,12 @@ void BatteryMonitor::updateValues(void) {
                                  mChargerNames[i].c_str());
             }
             path.clear();
-            path.appendFormat("%s/%s/current_max", POWER_SUPPLY_SYSFS_PATH,
+            path.appendFormat("%s/%s/current_now", POWER_SUPPLY_SYSFS_PATH,
                               mChargerNames[i].c_str());
             int ChargingCurrent = (access(path.c_str(), R_OK) == 0) ? getIntField(path) : 0;
 
             path.clear();
-            path.appendFormat("%s/%s/voltage_max", POWER_SUPPLY_SYSFS_PATH,
+            path.appendFormat("%s/%s/voltage_now", POWER_SUPPLY_SYSFS_PATH,
                               mChargerNames[i].c_str());
 
             int ChargingVoltage =
